@@ -1,0 +1,35 @@
+extends ../layout
+
+block content
+	div.container.position-center
+		div.col-sm-6.col-sm-offset-3
+			h1 
+				i.fa.fa-envelope
+				|  Reset password
+
+			if errorMessage.length > 0
+				div.alert.alert-danger
+					=errorMessage
+
+			form(action='/reset/verifyEmail' method='post')
+				div.form-group
+					br
+					label
+						|  Please type the Email that you registered for your account.
+					input(type='email' name='email').form-control
+				button(type='submit').btn.btn-primary
+					|  Submit
+
+
+			hr
+
+			p
+				| Need an account?
+				a(href='/signup')
+					|  Signup
+			p
+				| Or go
+				a(href='/')
+					|  Home
+
+	include ../components/footer

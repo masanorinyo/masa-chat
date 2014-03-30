@@ -1,0 +1,730 @@
+//---------Susy setup---------//
+$total-columns:12;
+$column-width:4em;
+$gutter-width:1em;
+$grid-padding:$gutter-width;
+
+@include border-box-sizing;
+
+$small:20em;
+$medium:48em;
+$large:65em;
+
+//all pages
+header{
+	
+	position:relative;
+	background-color:lighten($lightgray,40);
+	height:3em;
+
+	#online-users-modal{
+		.modal-header{
+			color:$lightgray;
+		}
+
+		.online_chatter{
+			@include border-radius(5px);
+			margin:0.2em 0;
+			overflow:hidden;
+			background-color:lighten($lightgray,40);
+			border:1px solid lighten($lightblue,10);
+			div{
+				display:inline-block;
+				position:relative;
+				padding:0 1em;
+				&.icon-wrapper{
+					background-color:$lightblue;
+					border-right:1px solid lighten($lightblue,10);
+					color:white;
+					font-size:1em;
+				}
+
+				&.chatter-wrapper{
+					color:lighten(black,40);
+				}
+			}
+
+		}
+	}
+
+	#publish-modal{
+		
+		.title-wrapper .title{
+			
+			font-size: 0.8em;
+			color: rgb(130,130,130);
+		
+		}
+		
+		.alert{
+			font-size:0.8em;
+		}
+
+		.social-accounts .btn{
+			width: 100%;
+			margin: 0.2em auto;
+		}
+		
+
+		.link-box{
+
+			border:1px solid rgb(220,220,220);
+			
+			.header{
+				font-size: 0.7em;
+				padding: 1px 0 0 0.2em;
+				color: rgb(130,140,140);
+				background-color: rgb(240,240,240);
+				border-bottom: 1px solid rgb(230,230,230);
+			}
+
+			.link-creator{
+				width: 100%;
+				min-height: 6.5em;
+				padding:1em;
+				overflow:auto;
+				background-color: rgb(250,250,250);
+				position:relative;
+
+				#link{
+					word-wrap:break-word; 
+					font-size: 0.8em;
+					color: rgb(100,150,200);
+					margin-bottom:1em;
+				}
+
+				// #copier{
+				// 	@include border-radius(0);
+				// 	position: absolute;
+				// 	right: 0;
+				// 	bottom: 0;
+				// 	border-top: 1px solid rgb(225,225,225);
+				// 	border-left: 1px solid rgb(225,225,225);
+				// 	border-right: 0;
+				// 	border-bottom: 0;
+				// }
+			}
+		}
+
+	}
+
+	#auth-modal{
+		.modal-dialog{
+			margin:3em auto;
+			width:16em;
+			
+			button.close{
+				position: absolute;
+				right: 20px;
+				top: 10px;
+				z-index:10;
+			}
+
+			.account-form{
+				padding:1em;
+				
+				.title-wrapper{
+					position:relative;
+					width:100%;
+					height:2em;
+
+					.title{
+						@include absolute-center;
+						text-align: center;
+						width: 50%;
+						font-size: 1.2em;
+					}
+				}
+
+				#social-box{
+					height:10em;
+
+					.social-accounts{
+						margin:1em;
+
+						a{
+							width: 100%;
+							margin-bottom: 0.5em;
+						}
+					}
+				}
+
+				#local-box{
+					width: 85%;
+					margin: auto;
+
+					.title{
+						
+						font-size: 0.8em;
+					}
+
+					label{
+						font-size: 0.8em;
+						color: rgb(150,150,150)
+					}
+				}
+
+
+
+
+			}
+		}
+	}
+
+	#chatters,#share-box{
+		
+		position: relative;
+		left: 5%;
+		bottom: 0;
+		margin: 1em 0.5em 0 0;
+		height: 55%;;
+		
+		#numberBox{
+			margin-left:1em;
+			background-color:$bootstrap-lightblue;
+		}
+	}
+
+	.menu-bar{
+		
+		height:100%;
+		position:relative;
+		
+		.menus{
+			@include absolute-center;
+			cursor:pointer;
+			width:50%;
+			height:80%;
+
+			.profilePhoto{
+				@include absolute-center;
+				@include border-radius(50%);
+				width:2.2em;
+				height:2.2em;
+				border:2px solid $gray;
+			}
+
+			.fa-caret-down{
+			
+				display:none;
+				color:$gray;
+
+				@include at-breakpoint($medium){
+					display:block;
+					position:absolute;
+					width:20px;
+					height:20px;
+					top:0;
+					bottom:0;
+					right:10px;
+					margin:auto auto auto 0;
+
+				}
+			}
+
+			&:hover img{
+				border-color:lighten($cyan,20);
+			}
+
+			&:hover .fa-caret-down{
+				color:lighten($cyan,20);
+			}
+		}
+		
+		.dropdown-menu{
+			right:30%;
+			left:initial;
+
+		}
+		
+	}
+
+	#auth-buttons{
+		position:absolute;
+		top:0;
+		bottom:0;
+		right:5%;
+		margin:auto;
+		height: 55%;
+	}
+	
+}
+
+footer{
+	position:relative;
+	bottom:0;
+	text-align: center;
+	margin-top:2em;
+	width: 100%;
+	padding:5px;
+	background-color: $darkgray;
+	
+	p{
+		height:100%;
+	}
+
+	a{
+		color:rgb(217,215,213);
+		&:hover{
+			color:lighten($blue,40);
+		}
+	}
+
+}
+
+
+
+
+.position-center{
+	margin-top:5em;
+	min-height:100%;
+
+	h1{
+		font-family: $font-normal;
+	}
+
+	.btn{
+		margin-top: 1em;
+	}
+	
+}
+
+
+
+
+//index.jade
+.jumbotron{
+	h1{
+		margin:0.2em;
+	}
+
+	p{
+		margin-bottom: 0.5em;
+	}
+	
+	//border-bottom:1px solid lighten($darkgray,40);
+	@include box-shadow(lighten($darkgray,40) 0 1px 5px);
+
+}
+
+.description{
+	position:relative;
+	overflow:auto;
+	.alert{
+		width:80%;
+	}
+
+	.description-cols{
+
+
+
+		h3{
+
+			margin:1em 0 0.5em;
+			color:$darkgray;
+			font-family:$font-medium;
+		}
+		
+		.wrapper-box{
+			@include border-radius;
+		
+			&.create{
+				background-color:$green;
+			
+			}
+
+			&.share{
+				
+				background-color:$cyan;
+
+			}
+
+			&.talk{
+			
+				background-color:lighten($darkblue,10);
+				
+			}
+
+			p{
+				padding:1em;
+				color:white;
+				font-family: $font-normal;
+			}
+		}
+
+		@include at-breakpoint($medium){
+			position: relative;
+			height:17em;
+			
+			h3{
+				text-align: center;
+				margin:0;
+			}
+
+			.wrapper-box{
+				@include border-radius(12em);
+				@include absolute-center($top:1em);
+				background-color:$darkgray;
+				width:12em;
+				height:12em;
+				&.create{
+					
+					p{
+						height:55%;
+					}
+				}
+
+				&.talk{
+					
+					p{
+						width:58%;
+						height:45%;
+					}
+				}
+
+				p{
+					@include absolute-center;
+					width:67%;
+					height:67%;
+					color:white;
+					font-size:0.9em;
+					padding:0;
+				}
+			}
+		}
+		
+		.fa-caret-right{
+
+			position: absolute;
+			right:2px;
+			top:0;
+			bottom:0;
+			margin:auto 0;
+			height:2em;
+			font-size:2em;
+			display:none;
+			
+			@include at-breakpoint($medium){
+				display:block;
+			}
+
+		}
+
+		
+	}
+}
+
+//get a visitor's name
+#getName{
+	.form-control,.anonymous{
+		margin-bottom:1em!important;
+	}
+}
+
+
+// chatting room
+// modal box for getting names
+#getName-modal{
+	.modal-body{
+		p{
+		font-size: 1em;
+		color: rgb(130,130,130);
+		}
+	
+		button{
+			margin-top:1em;
+		}
+	}
+}
+
+
+// main chatting name
+#chatting-page{
+	
+	height:90%;
+	min-height:12em;
+
+	.alert{
+		margin: 0.5em auto;	
+	}
+
+	//to make a space below the message send box
+	.input-group{
+		padding-bottom:1em;
+	}
+
+
+
+	#title{
+		text-align: center;
+		margin:0.8em auto;
+		width:100%;
+
+		h1{
+			color:$lightgray;
+			font-family:$font-medium;
+			font-size:0.8em;
+			
+			&:hover{
+				color:lighten($blue,10);
+				
+			}
+		
+		}//h1	
+	}//title
+
+	#chatroom{
+
+		@include border-radius(10px);
+		height: 70%;
+		
+		border: 1px solid lighten($lightgray,30);
+		width: 100%;
+		padding:1em;
+		margin-bottom: 10px;
+		position: relative;
+		font-size:0.8em;
+		overflow:auto;
+		
+
+
+		#chat_log{
+			overflow-y: scroll;
+			overflow-x: hidden;
+			list-style: none;
+			width: 100%;
+			margin:auto;
+			max-height: 100%;
+			position: absolute;
+			right: 0;
+			left: 0;
+			bottom: 0;
+			color: $darkgray;
+
+
+			.systemMessage{
+				width:100%;
+				text-align:center;
+				
+				span{
+					color:lighten($gray,20);
+				}
+
+				&.warningMessage span{
+
+					color:lighten($red,20);	
+				}
+
+				&.emphasizeMessage span{
+					color:lighten($cyan,20);
+				}
+			}
+			
+			li{
+				float:left;
+				width:75%;
+
+
+				.chatter{
+					
+					color: rgb(145,145,145);
+
+					img{
+						width: 30px;
+						margin: 0 0.6em -5px 2px;
+					}
+
+					.accessTime{
+						margin-left: 0.5em;
+						font-size:0.8em;
+					}
+
+				}
+
+				.message{
+					@include border-radius(10px);
+					@include background-image(linear-gradient(rgb(235,235,235) 5%,lighten($lightgray,30) 95%));
+					color:white;
+					padding:1em;
+					position:relative;
+					width:100%;
+
+
+
+					.fa-caret-up{
+						position: absolute;
+						top: -14px;
+						left: 10px;
+						font-size: 1.5em;
+					}
+				}
+			}
+
+			.myMessage{
+				
+				margin:1em 0 1em 1em;
+
+				.message{
+					float: left;
+					@include background-image(linear-gradient(lighten($lightblue,10) 5%,$lightblue 95%));
+
+					.fa-caret-up{
+						color: rgb(199,230,252);
+					}
+
+				}
+
+			}
+
+			.othersMessage{
+				
+				font-family: $font-medium;
+				float:right;
+				margin:1em 1em 1em 0;
+				
+				.message{
+					color:black;
+				}
+				.fa-caret-up{
+					color: rgb(235,235,235);
+				}
+
+			}
+
+		}
+
+		#chat_box{
+			
+			width: 100%;
+		}
+	}
+}
+
+//setting 
+#setting-page{
+
+	.container{
+		position:relative;
+		
+		.well{
+			
+			min-height:8em!important;
+			
+		}
+		
+		.userInformation{
+			overflow:auto;
+			li{
+				height: 2.2em;
+				font-size:0.9em;
+			}
+		}
+		
+		.label-warning{
+			font-size: 0.6em;
+		    position: absolute;
+		    right: 1em;
+		    top: 2.4em;
+
+		    @include at-breakpoint(28em){
+				top: 1.5em;
+				right: 0.5em;
+				font-size: 0.9em;
+			}
+		}
+
+		.dangerous-zone{
+			top:1.5em
+		}
+
+		#photos-modal{
+
+			li {
+				@include border-radius(20px);
+				background-color: rgb(240,240,240);
+				padding: 20px;
+				margin-bottom: 5px;
+				position: relative;
+
+				&.last{
+					@include border-radius(15px);
+					margin-top: 1em;
+					background-color: white!important;
+					border: 2px dotted rgb(200,200,200);
+					height: 65px;
+					cursor:pointer;
+
+					#uploader {
+						font-size: 16px;
+					}
+	
+					&:hover{
+						border-color:rgb(100,100,100);	
+					}
+				}
+
+				.label.last{
+					color:rgb(150,150,150);
+					margin-bottom:0.5em;
+				}
+
+				img{
+					width: 80px;
+					padding: 5px;
+					border: 2px solid rgb(200,200,200);
+				}
+
+
+				 div,button{
+					position: absolute;
+					right: 0;
+					left: 50px;
+					top: 0;
+					bottom: 0;
+					margin: auto;
+					width: 120px;
+					height: 20px;
+				}
+
+				button{
+					left: 100px;
+					width: 200px;
+					height: 35px;
+				}
+
+				#local-defaultPhoto {
+					top: -80px!important;
+				}
+
+				#changePhoto-form {
+					margin-top: 20px;
+					
+					#changePhoto{
+						width:80%;
+					}
+			
+				}
+
+			}
+		}
+
+		#reset-password-modal{
+			.warning{
+				color: $orange;
+				font-size: 0.8em;
+				margin: 0.2em 0 0 0;
+				display:none;
+			}
+
+			.form-control{
+				margin-top:1em;
+			}
+		}
+	}
+
+
+	footer{
+		position:relative;
+		margin-top:5em;
+	}
+}

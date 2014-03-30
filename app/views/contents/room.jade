@@ -1,0 +1,25 @@
+extends ../layout-with-socket
+
+block content
+
+	include ../components/header
+
+	div#chatting-page.container
+		if message.length > 0
+			div.alert.alert-danger.container
+				=message
+		div.col-xs-9#title
+			
+			a(href='/room/#{roomName}/#{key}')
+				h1
+					| #{roomName}'s chatting room
+				
+
+		div#chatroom
+			ul#chat_log
+		
+		div.input-group
+			input(type='text' title="Send" name='chat_box' value="" placeholder=" type to chat...")#chat_box.form-control
+			span.input-group-btn
+				button(type='button')#submit_button.btn.btn-default
+					|  Send

@@ -1,0 +1,13 @@
+@mixin absolute-center($top:0,$right:0,$bottom:0,$left:0){
+	
+	position:absolute;
+	top:$top;right:$right;bottom:$bottom;left:$left;
+	margin:auto;
+
+}
+
+@mixin transparent-background-color($color,$opacity:0.1){
+	
+	background-color:rgba($color,$opacity);
+
+}

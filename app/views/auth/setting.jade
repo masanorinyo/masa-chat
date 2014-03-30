@@ -1,0 +1,317 @@
+extends ../layout
+
+block content
+	include ../components/header
+	
+	div#setting-page
+		article.container
+			div.page-header.text-center
+				h1
+					i.fa.fa-anchor
+					|  Setting Page
+				
+			div.row
+				div.col-sm-12
+					div.well
+						ul.userInformation
+							li
+								strong
+								|  Username:  
+							
+								span.pull-right
+									=user.profile.username
+							
+							li
+								strong
+									|  email:  
+								span.pull-right
+									=user.profile.email
+
+							li
+								strong
+									|   Gender:  
+								
+								span.pull-right
+									
+									if user.profile.gender
+										=user.profile.gender
+
+									else
+										|  Not specified
+							
+							li
+								strong
+									|  Photos:  
+								if isVerified
+									button(data-toggle="modal" data-target="#photos-modal").btn.btn-default.pull-right
+										|  Change Profile Picture
+								else 
+									button(data-toggle="modal" data-target="#verification-modal").btn.btn-default.pull-right
+										|  Change Profile Picture
+							
+
+				//------for local-------//
+				div.col-sm-6
+					div.well
+						h3
+							i.fa.fa-user
+							|   Local
+
+						// if the local account is the only connected account
+						// then this will prevent the unlink button from appearing
+						
+						br
+
+						if user.local.email && user.local.password
+							if isVerified
+								button(data-toggle="modal" data-target="#reset-password-modal").account-verifier.btn.btn-default
+									|  Change Password
+							else 
+								button(data-toggle="modal" data-target="#verification-modal").account-verifier.btn.btn-default
+									|  Change Password
+
+							&nbsp;
+
+							
+
+							if account === 'local'
+								span.label.label-warning
+									| Default Account
+							else 
+								a(href='/unlink/local').btn.btn-default
+									|Unlink
+						
+						else
+							a(href='/connect/local').btn.btn-default
+								|Connect Local
+				
+				//------for facebook-------//
+				div.col-sm-6
+					div.well
+						h3.text-primary
+							i.fa.fa-facebook
+							|  Facebook
+
+						br
+
+						if user.facebook.token
+							if account === 'facebook'
+								span.label.label-warning
+									| Default Account
+							else
+								a(href='/unlink/facebook').btn.btn-primary
+									|Unlink
+
+						else
+							a(href='/connect/facebook').btn.btn-primary
+								|Connect Facebook
+				
+				//------for twitter-------//
+				div.col-sm-6
+					div.well
+						h3.text-info
+							i.fa.fa-twitter
+							|  twitter
+
+						br
+
+						if user.twitter.token
+							if account==='twitter'
+								span.label.label-warning
+									| Default Account
+							else
+								a(href='/unlink/twitter').btn.btn-info
+									|  Unlink
+
+						else
+							a(href='/connect/twitter').btn.btn-info
+								|  Connect Twitter
+				
+				//------for google plus-------//
+				div.col-sm-6
+					div.well
+						h3.text-danger
+							i.fa.fa-google-plus
+							|   Google+
+
+						br
+
+						if user.google.token
+							if account === 'google'
+								span.label.label-warning
+									|  Default Account
+							else 
+								a(href='/unlink/google').btn.btn-danger
+									|  Unlink
+
+						else
+							a(href='/connect/google').btn.btn-danger
+								|  Connect Google
+
+
+
+				div.col-sm-12.dangerous-zone
+
+					a(href='/logout').btn.btn-default.btn-sm.col-xs-4.col-xs-offset-1.col-sm-3.col-sm-offset-2
+						|  Logout  
+
+					button(data-toggle="modal" data-target="#delete-modal").btn.btn-default.btn-sm.col-xs-4.col-xs-offset-1.col-sm-3.col-sm-offset-2
+						|  Delete Account 
+
+
+			div(tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true')#delete-modal.modal.fade
+				div.modal-dialog
+					div.modal-content
+						div.modal-header
+							button(type='button' data-dismiss='modal' aria-hidden='true').close
+								|  &times;
+							h4.modal-title
+								|  Are you sure you want to delete your account?
+						
+						div.modal-body
+							a(href='/delete').btn.btn-danger.pull-right
+								|  Delete Account
+
+							button(type='button' data-dismiss='modal').btn.btn-default
+								|  Close
+
+			div(tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true')#verification-modal.modal.fade
+				div.modal-dialog
+					div.modal-content
+						div.modal-header
+							button(type='button' data-dismiss='modal' aria-hidden='true').close
+								|  &times;
+							h4.modal-title
+								|  Change Password
+						
+						div.modal-body
+							
+							p.alert.alert-warning
+								| You need to verify your account first.
+
+							hr
+
+							a(href='/resend').btn.btn-info.pull-right
+								|  Send Verification code
+
+							button(type='button' data-dismiss='modal').btn.btn-default
+								|  Close
+
+			div(tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true')#reset-password-modal.modal.fade
+				div.modal-dialog
+					div.modal-content
+						div.modal-header
+							button(type='button' data-dismiss='modal' aria-hidden='true').close
+								|  &times;
+							h4.modal-title
+								| Reset Password
+						
+						div.modal-body
+
+							form(action='/reset/verified/changePass' method='post')
+								div.form-group
+									input(type='email' name='email' value="#{user.local.email}" hidden)
+									span#pass-label.warning.pull-right
+										|  Wrong Password
+
+									label.label.label-info
+										|  Old password
+									
+									input(type='password' name='oldPass' placeholder="Please type your current password")#oldPass.form-control
+									
+									hr
+									
+									span#confirm-label.warning.pull-right
+										|  Please type the same passwords
+
+									p#empty-label.warning.pull-right
+										|  Your password needs to be more than 4 characters
+
+									label.label.label-success
+										|  New Password
+
+									input(type='password' name='newPass' placeholder="Please type your new password" )#newPass.form-control
+									
+									
+									input(type='password' name='password' placeholder="Please retype your new password to confirm" )#confirmPass.form-control
+								
+								hr
+
+								input(type='submit' value="Reset Password" disabled).btn.pull-right
+
+								button(type='button' data-dismiss='modal').btn.btn-default
+									|  Close
+
+			div(tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true')#photos-modal.modal.fade
+				div.modal-dialog
+					div.modal-content
+						div.modal-header
+							button(type='button' data-dismiss='modal' aria-hidden='true').close
+								|  &times;
+							h4.modal-title
+								|  Photos
+						
+						div.modal-body
+							ul
+								if user.profile.photos.facebook
+									li#facebook-photo
+										img(src="#{user.profile.photos.facebook}" alt="Facebook Photo")
+
+										if user.profile.photos.facebook === user.profile.primaryPhoto
+											div.label.label-info
+												|  Default Photo
+										else
+											button#facebook-defaultPhoto.btn.btn-default
+												|  Make this as default photo.
+
+								if user.profile.photos.twitter
+									li#twitter-photo
+										img(src="#{user.profile.photos.twitter}" alt="Twitter Photo")
+
+										if user.profile.photos.twitter === user.profile.primaryPhoto
+											div.label.label-info
+												|  Default Photo
+										else
+											button#twitter-defaultPhoto.btn.btn-default
+												|  Make this as default photo.
+
+								if user.profile.photos.google
+									li#google-photo
+										img(src="#{user.profile.photos.google}" alt="Google Photo")
+
+										if user.profile.photos.google === user.profile.primaryPhoto
+											div.label.label-info
+												|  Default Photo
+
+										else
+											button#google-defaultPhoto.btn.btn-default
+												|  Make this as default photo.
+								if user.profile.photos.local && user.profile.photos.local!=="http://masa-chat.nodejitsu.com/images/default_img.png"
+									li#local-photo
+										img(src="#{user.profile.photos.local}" alt="Local Photo")
+
+										if user.profile.photos.local === user.profile.primaryPhoto
+											div.label.label-info
+												|  Default Photo
+
+										else
+											button#local-defaultPhoto.btn.btn-default
+												|  Make this as default photo.
+										form(action='/upload' method='post' enctype='multipart/form-data')#changePhoto-form
+											label(for='changePhoto').label.last
+												|  Change Photo
+											input(type='file' name='localPhoto')#changePhoto
+								else
+									li.last
+										form(action='/upload' method='post' enctype='multipart/form-data')#upload-form
+											input(type='file' name='localPhoto')#uploader
+
+						div.modal-footer
+							button(type='button' data-dismiss='modal').btn.btn-default.close
+								|  Close
+
+							
+
+							
+
+		include ../components/footer

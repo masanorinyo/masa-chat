@@ -1,0 +1,51 @@
+extends ../layout
+
+block content
+	div.container.position-center
+		div.col-sm-6.col-sm-offset-3
+			h1
+				i.fa.fa-sign-in
+				|  Signup
+
+			if message.length>0
+				div.alert.alert-danger
+					=message
+
+			form(action='/signup' method='post')
+				
+				div.form-group
+					label
+						|  Email
+					
+					input(type='email' name='email').form-control
+				
+				div.form-group
+					
+					label
+						|  Password
+					
+					input(type='password' name='password').form-control
+
+				input(id='remember_me' type='checkbox' name='remember_me' checked)
+				label(for='remember_me').font-size-sl
+					|&nbsp;  remember me
+
+				button(type='submit').btn.btn-warning.btn-lg.pull-right
+					|  Signup
+
+			br
+			hr
+
+			p
+				|&nbsp;Already have an account?
+				a(href='/login')
+					|  Login
+
+			p
+				|&nbsp;Or go
+				a(href='/')
+					|  Home
+
+
+	include ../components/footer
+			

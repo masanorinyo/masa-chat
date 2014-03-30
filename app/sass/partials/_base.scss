@@ -1,0 +1,46 @@
+body,html{
+	height:100%;
+	width:100%;
+}
+
+body{
+	font-family:$font-normal;
+	font-size:1.2em;
+	line-height:160%;
+}
+
+#{headings()}{
+	font-family:$font-strong;
+	font-weight:normal;
+}
+
+h2{
+	font-size:1.5em;
+}
+
+h3{
+	font-family:$font-medium;
+	font-size:1.2em;
+}
+
+h4{
+	font-family:$font-medium;
+}
+
+a{
+	
+	text-decoration:none;
+	&:hover{
+		color:$cyan;
+	}
+}
+
+li{
+	width:100%;
+	text-align:left;
+}
+
+small,.small{
+	font-size:0.8em;
+	color:$theme_gray;
+}

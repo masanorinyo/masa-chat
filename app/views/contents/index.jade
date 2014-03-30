@@ -1,0 +1,83 @@
+extends ../layout
+
+block content
+
+	section.jumbotron.text-center
+		h1
+			i.fa.fa-comments-o
+			|  Simple Chatting Room
+		p
+			|  Login or Register with: 
+		
+		a(href='/login').btn.btn-default 
+			i.fa.fa-user 
+			|  Local Login 
+		&nbsp;
+
+		a(href='/signup').btn.btn-default 
+			i.fa.fa-user 
+			|  Local Signup
+		&nbsp;
+		
+		a(href='/auth/facebook').btn.btn-primary
+			i.fa.fa-facebook 
+			|  Facebook
+		&nbsp;
+
+		a(href='/auth/twitter').btn.btn-info
+			i.fa.fa-twitter 
+			|  Twitter 
+		&nbsp;
+
+		a(href='/auth/google').btn.btn-danger
+			i.fa.fa-google-plus 
+			|  Google+
+
+	section.description
+		if message.length > 0
+			div.alert.alert-danger.container
+				=message
+		h2.hidden
+			|  Description
+		
+		div.col-sm-4.description-cols
+			h3
+				i.fa.fa-chain
+				|  Create
+			
+			div.wrapper-box.lead.create
+				p
+					i.fa.fa-quote-left
+					|  Once you log into the system, it will create your chatting room.  
+					i.fa.fa-quote-right
+
+			i.fa.fa-caret-right
+
+		div.col-sm-4.description-cols
+			h3
+				i.fa.fa-users
+				|  Share
+
+			div.wrapper-box.lead.share
+				p
+					i.fa.fa-quote-left
+					|  You can share the link on different social networks and others can join the room through the link  
+					i.fa.fa-quote-right
+
+			
+			i.fa.fa-caret-right
+			
+
+		div.col-sm-4.description-cols
+			h3
+				i.fa.fa-smile-o
+				|  Talk
+			
+			div.wrapper-box.lead.talk
+				p
+					i.fa.fa-quote-left
+					|  You can talk to everyone in your chatroom!   
+					i.fa.fa-quote-right
+
+	include ../components/footer
+			

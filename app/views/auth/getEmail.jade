@@ -1,0 +1,36 @@
+extends ../layout
+
+block content
+	div.container.position-center
+		div.col-sm-6.col-sm-offset-3
+			h1 
+				i.fa.fa-gavel
+				|  Your Email
+
+			if errorMessage.length > 0
+				div.alert.alert-danger
+					=errorMessage
+
+			
+			form(action='/getEmail/complete' method='post')
+				div.form-group
+					br
+					label
+						|  Please type your E-mail
+					input(type='email' name='email').form-control
+					
+				button(type='submit').btn.btn-primary
+					|  Submit
+
+			br
+
+			hr
+
+			p
+				| Or go
+				a(href='/delete')
+					|  Home
+
+	include ../components/footer
+
+

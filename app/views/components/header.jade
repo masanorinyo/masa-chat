@@ -1,0 +1,169 @@
+header
+	
+	// only shows the online user information when a user is on chatting page
+	// only shows the share link box when a user is on chatting page
+	
+	if !onSettingPage
+		div(data-toggle="modal" data-target="#online-users-modal")#chatters.btn.btn-default.pull-left
+			i.fa.fa-user
+			span#numberBox.badge
+				|   0
+
+	
+	if	!onSettingPage && isLoggedIn && isMyRoom
+		div(data-toggle="modal" data-target="#publish-modal")#share-box.btn.btn-default.pull-left
+			span
+				|  Invite
+			
+
+
+
+	if isLoggedIn 
+		div.btn-group.col-xs-3.menu-bar.pull-right
+			
+			div( data-toggle='dropdown').menus
+				img(src='#{userPhoto}').img-circle.profilePhoto
+				i.fa.fa-caret-down
+
+			ul(role='menu').dropdown-menu
+				li
+					a(href='/room/#{myname}/me')
+						|  My Chatting Room
+				li   
+					a(href='/setting')
+						|  Setting
+				li.divider
+				li	 
+					a(href='/logout')
+						|  Logout
+
+	else
+		div#auth-buttons.pull-right
+			button(type='button')#login-button.btn.btn-default
+				|  Log in  
+
+			&nbsp;
+
+			button(type='button')#signup-button.btn.btn-primary
+				|  Sign up
+
+	div(tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true')#online-users-modal.modal.fade
+		div.modal-dialog
+			div.modal-content
+				div.modal-header
+					button(type='button' data-dismiss='modal' aria-hidden='true').close
+						|  &times;
+					h4.modal-title
+						|  Currently online chatters
+				div.modal-body
+					ul#chatter-box
+
+				
+				div.modal-footer
+					button(type='button' data-dismiss='modal').btn.btn-default
+						|  Close
+
+	
+
+	div(tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true')#auth-modal.modal.fade
+		div.modal-dialog
+			div.modal-content
+				button(type='button' data-dismiss='modal' aria-hidden='true').close
+					|  &times;
+				div.account-form
+					div#social-box
+						div.title-wrapper
+							span.title
+								i.fa.fa-comments-o
+								&nbsp;
+								span
+						ul.social-accounts
+							li
+								a(href='/auth/facebook').btn.btn-primary
+									i.fa.fa-facebook 
+									|  Facebook
+							li
+								a(href='/auth/twitter').btn.btn-info
+									i.fa.fa-twitter 
+									|  Twitter 
+							li
+								a(href='/auth/google').btn.btn-danger
+									i.fa.fa-google-plus 
+									|  Google+
+					hr
+					div#local-box
+						div.title-wrapper
+							span.title
+								|  Local
+						form(method='post')
+							div.form-group
+								input(type='email' name='email' placeholder="Please type email..").form-control
+							
+							div.form-group
+
+								input(type='password' name='password' placeholder="Please type password..").form-control
+
+							input(id='remember_me' type='checkbox' name='remember_me' checked)
+							label(for='remember_me').font-size-sl
+								|&nbsp;  remember me
+
+							button(type='submit').btn.btn-primary.btn-sm.pull-right
+								|   Submit
+
+	div(tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true')#publish-modal.modal.fade
+		div.modal-dialog
+			div.modal-content
+				div.modal-header
+					button(type='button' data-dismiss='modal' aria-hidden='true').close
+						|  &times;
+					h4.modal-title
+						|  Publish your room
+				div.modal-body
+					div.share-box
+						div.title-wrapper
+							span.title
+								|  Publish your link to the chatroom on
+						ul.social-accounts
+							if numOfLinkedAccounts > 1
+								li#all-post.btn.btn-warning
+									i.fa.fa-plus 
+									|  ALL
+
+							if facebookLinked
+								li#facebook-post.btn.btn-primary
+									i.fa.fa-facebook 
+									|  Facebook
+							
+							if twitterLinked 
+								li#twitter-post.btn.btn-info
+									i.fa.fa-twitter 
+									|  Twitter 
+								
+							if googleLinked
+								a(href="https://plus.google.com/share?url=#{url}")#google-post.btn.btn-danger
+									i.fa.fa-google-plus 
+									|  Google+
+
+
+							if !facebookLinked && !twitterLinked && !googleLinked
+								li
+									p.alert.alert-danger
+										|  You don't have any accounts linked. Please link your accounts on setting page. 
+									a(href='/setting').btn.btn-info
+										|  Go to setting page
+
+					hr
+
+					div.link-box
+						p.header
+							|  Send the below link to invite others to the chatroom.
+						div.link-creator
+							span#link
+								|#{url}
+							//div(data-clipboard-text="link")#copier.btn.btn-default
+								//|  Copy Link
+
+				
+				div.modal-footer
+					button(type='button' data-dismiss='modal').btn.btn-default
+						|  Close

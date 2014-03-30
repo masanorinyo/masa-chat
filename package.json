@@ -1,0 +1,43 @@
+{
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node config/server.js"
+  },
+  "bin": "./config/server.js",
+  "dependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-watch": "~0.5.0",
+    "grunt-contrib-compass": "~0.5.0",
+    "grunt-contrib-uglify": "~0.2.2",
+    "express": "*",
+    "jade": "*",
+    "mongoose": "*",
+    "connect-mongo": "*",
+    "passport": "*",
+    "passport-local": "*",
+    "passport-facebook": "*",
+    "passport-twitter": "*",
+    "passport-google-oauth": "*",
+    "bcrypt-nodejs": "*",
+    "optimist": "*",
+    "nodemailer": "*",
+    "node-uuid": "*",
+    "node-sass": "*",
+    "socket.io": "*",
+    "connect": "*",
+    "cookie": "*",
+    "fbgraph": "*",
+    "twit": "*"
+  },
+  "devDependencies": {
+    "mocha": "~1.12.1",
+    "should": "~1.2.2",
+    "supertest": "~0.7.1"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "name": "simple-chatting-room",
+  "subdomain": "masa-chat"
+}
