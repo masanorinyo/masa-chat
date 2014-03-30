@@ -133,6 +133,7 @@ module.exports = function(passport) {
 
         process.nextTick(function() {
             
+            
             // check if the user is already logged in
             if (!req.user) {
                 
@@ -141,7 +142,7 @@ module.exports = function(passport) {
                     'local.email' :  email 
                 
                 }, function(err, user) {
-                    
+                
                     if(err){
                     
                         return done(err);
@@ -173,8 +174,8 @@ module.exports = function(passport) {
                                 // Stores email and hashed password into a new user variable.
                                 newUser.profile.email           = email;
                                 newUser.local.email             = email;
-                                newUser.profile.primaryPhoto    = 'http://masa-chat.nodejitsu.com/images/default_img.png';
-                                newUser.profile.photos.local    = 'http://masa-chat.nodejitsu.com/images/default_img.png';
+                                newUser.profile.primaryPhoto    = '/images/default_img.png';
+                                newUser.profile.photos.local    = '/images/default_img.png';
                                 newUser.local.password          = newUser.generateHash(password);
                                 //once users verify the account by clicking the link provided 
                                 //in the verification Email, this will become true
@@ -219,7 +220,7 @@ module.exports = function(passport) {
                 //check to see if there is already a user registered with that Email
                 User.findOne({
 
-                    'local.email':req.body.email
+                    'local.email':email
 
                 },function(err,existingUser){
 
@@ -232,13 +233,13 @@ module.exports = function(passport) {
                     }else if(existingUser){
 
                         req.session.signupMessage='That Email is already used';
-                        return done(err,existingUser);
+                        return done(err);
 
                     }else{
 
                         user.local.email            = email;
                         user.local.password         = user.generateHash(password);
-                        user.profile.photos.local   = 'http://masa-chat.nodejitsu.com/images/default_img.png';
+                        user.profile.photos.local   = '/images/default_img.png';
                         user.save(function(err) {
                             
                             if (err){
