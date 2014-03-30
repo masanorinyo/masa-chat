@@ -717,20 +717,24 @@ module.exports = function(app, passport) {
 	// facebook authorization
 
 	// send to facebook to do the authentication
-	app.get('/connect/facebook', function(req,res){
+	app.get('/connect/facebook', function(req,res,next){
 		
 		if(!req.user){
 			res.redirect('/');
 		}
+
+		next();
 
 	}, passport.authenticate('facebook-connect', { scope : 'email' }));
 
 	// handle the callback after facebook has authorized the user
-	app.get('/connect/facebook/callback',function(req,res){
+	app.get('/connect/facebook/callback',function(req,res,next){
 		
 		if(!req.user){
 			res.redirect('/');
 		}
+
+		next();
 
 	},passport.authenticate('facebook-connect', {
 	
@@ -742,20 +746,24 @@ module.exports = function(app, passport) {
 	// twitter authorization
 
 	// send to twitter to do the authentication
-	app.get('/connect/twitter', function(req,res){
+	app.get('/connect/twitter', function(req,res,next){
 		
 		if(!req.user){
 			res.redirect('/');
 		}
+
+		next();
 
 	}, passport.authenticate('twitter-connect', { scope : 'email' }));
 
 	// handle the callback after twitter has authorized the user
-	app.get('/connect/twitter/callback',function(req,res){
+	app.get('/connect/twitter/callback',function(req,res,next){
 		
 		if(!req.user){
 			res.redirect('/');
 		}
+
+		next();
 
 	}, passport.authenticate('twitter-connect', {
 		
@@ -768,20 +776,26 @@ module.exports = function(app, passport) {
 	// google authorization
 
 	// send to google to do the authentication
-	app.get('/connect/google', function(req,res){
+	app.get('/connect/google', function(req,res,next){
 		
 		if(!req.user){
 			res.redirect('/');
 		}
+
+		next();
 
 	}, passport.authenticate('google-connect', { scope : ['profile', 'email'] }));
 
 	// the callback after google has authorized the user
-	app.get('/connect/google/callback',function(req,res){
+	app.get('/connect/google/callback',function(req,res,next){
 		
 		if(!req.user){
 			res.redirect('/');
 		}
+
+		next();
+
+
 
 	}, passport.authenticate('google-connect', {
 		successRedirect : '/setting',
@@ -802,6 +816,7 @@ module.exports = function(app, passport) {
 		if(!user){
 			res.redirect('/');
 		}
+
 
 		//log user's unlinking activity
         auth_utility.writeLog(user.profile.username,user.id,'Local unlinked');

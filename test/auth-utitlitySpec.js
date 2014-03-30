@@ -1,9 +1,7 @@
-var app 		= require('./helpers/app');
+var app = require('./helpers/app');
 
-var should 		= require('should'),
-	supertest 	= require('supertest'),
-	mocha 		= require('mocha');
-
+var should = require('should'),
+	supertest = require('supertest');
 
 describe('flights', function () {
 	
