@@ -14,3 +14,4 @@ User: masanorinyo - id: 53382ccaf3ac014438b8b892 - Activity: Local Login - When:
 User: senmasanori - id: 53384d8264fe3299974f8367 - Activity: Local Login - When: Sun Mar 30 2014 14:54:27 GMT-0400 (EDT)
 User: senmasanori - id: 53384d8264fe3299974f8367 - Activity: Local Authorizatoin - When: Sun Mar 30 2014 14:55:34 GMT-0400 (EDT)
 User: masanorinyo - id: 53388cc5bfa84f5441608a02 - Activity: Local signup - When: Sun Mar 30 2014 17:29:42 GMT-0400 (EDT)
+User: masanorinyo - id: 5338cbf678d12d00006b3751 - Activity: Local Login - When: Sun Mar 30 2014 22:05:11 GMT-0400 (EDT)

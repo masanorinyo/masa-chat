@@ -401,11 +401,12 @@ module.exports = function(passport) {
             var picture = profile.username;
             var picUrl  = "https://graph.facebook.com/"+picture+"/picture";
 
-            // if there is a user id already but no token 
             // (user was linked at one point and then removed)
+            
             if (!req.user.facebook.token) {
             
                 var user                        = req.user;
+                user.facebook.id                = profile.id;
                 user.facebook.token             = token;
                 user.profile.photos.facebook    = picUrl;
                 user.profile.gender             = profile.gender;
@@ -487,10 +488,13 @@ module.exports = function(passport) {
                 
                     }else if(user){
                         
+                        console.log("twitter user : found");
                         // if there is a user id already but no token 
                         // (user was linked at one point and then removed)
                         if (!user.twitter.token) {
                         
+
+                            console.log("twitter user : No token");
                             user.twitter.token          = token;
                             user.twitter.tokenSecret    = tokenSecret;
                             user.profile.photos.twitter = profile.photos[0].value;
@@ -513,6 +517,7 @@ module.exports = function(passport) {
                         
                         }else{
                          
+                            console.log("twitter user : id and token found");
                             //log user's logging activity
                             writeLog(user.profile.username,user.id,'Twitter Login');
                             return done(null, user); // user found, return that user    
@@ -521,6 +526,7 @@ module.exports = function(passport) {
                         
                     } else {
                         
+                        console.log("twitter user : Nothing was found");
                         // if there is no user, create them
                         var newUser                     = new User();
 
@@ -559,8 +565,9 @@ module.exports = function(passport) {
 
             } else {
                 
+                console.log("twitter user : already loggedin");
                 // There is already a user logged in
-                // This allows for linking Facebook account
+                // This allows for linking twitter account
                 // gets the user out of the session
                 var user                    = req.user; 
 
@@ -605,10 +612,11 @@ module.exports = function(passport) {
             
            var user = req.user;
                         
-            // if there is a user id already but no token 
+            
             // (user was linked at one point and then removed)
             if (!user.twitter.token) {
             
+                user.twitter.id             = profile.id;
                 user.twitter.token          = token;
                 user.twitter.tokenSecret    = tokenSecret;
                 user.profile.photos.twitter = profile.photos[0].value;
@@ -633,7 +641,7 @@ module.exports = function(passport) {
              
                  
                 // There is already a user logged in
-                // This allows for linking Facebook account
+                // This allows for linking twitter account
                 // gets the user out of the session
                 var user                    = req.user; 
 
@@ -814,12 +822,12 @@ module.exports = function(passport) {
         process.nextTick(function() {
             
             var user = req.user;
-            // if there is a user id already but no token 
+            
             // (user was linked at one point and then removed)
-            console.log(user);
 
             if (!user.google.token) {
                
+                user.google.id              = profile.id;
                 user.google.token           = token;
                 user.google.name            = profile.displayName.replace(/\s/g, '-');
                 user.profile.gender         = profile._json.gender;
@@ -843,15 +851,15 @@ module.exports = function(passport) {
             }else{
 
                 // There is already a user logged in
-                // This allows for linking Facebook account
+                // This allows for linking google account
                 // gets the user out of the session
-                var user                    = req.user;
 
                 user.google.id              = profile.id;
                 user.google.token           = token;
                 user.profile.photos.google  = profile._json.picture; 
                 user.profile.gender         = profile._json.gender;
                 
+                console.log(profile.id);
 
                 user.save(function(err) {
                     if (err){
