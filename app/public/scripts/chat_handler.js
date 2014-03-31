@@ -1,5 +1,6 @@
 $(function(){
-    
+
+    //functions
     var getTime = function(){
          var date = new Date();
          return (
@@ -64,6 +65,7 @@ $(function(){
     var socket = io.connect('http://masa-chat.nodejitsu.com');
 
     socket.on('entrance', function  (data) {
+        $('#chatAudio')[0].play();
         log_system_message(data.message, 'normal');
     });
 

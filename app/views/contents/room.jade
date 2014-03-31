@@ -3,7 +3,7 @@ extends ../layout-with-socket
 block content
 
 	include ../components/header
-
+	audio(src="/notify.mp3" type="audio/mp3")#chatAudio
 	div#chatting-page.container
 		if message.length > 0
 			div.alert.alert-danger.container
