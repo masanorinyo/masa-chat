@@ -663,6 +663,18 @@ footer{
 					}
 				}
 
+				.btn{
+					
+					width: 150px;
+					font-size:0.5em;
+
+					@include at-breakpoint($medium){
+						width: 200px;
+						font-size:0.8em;
+					}
+					
+				}
+
 				.label.last{
 					color:rgb(150,150,150);
 					margin-bottom:0.5em;
