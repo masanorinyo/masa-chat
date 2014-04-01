@@ -777,7 +777,7 @@ module.exports = function(passport) {
             } else {
                 
                 // There is already a user logged in
-                // This allows for linking Facebook account
+                // This allows for linking google account
                 // gets the user out of the session
                 var user                    = req.user;
 

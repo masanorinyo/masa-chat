@@ -301,6 +301,11 @@ footer{
 	p{
 		margin-bottom: 0.5em;
 	}
+
+	#register{
+		margin-top:1em;
+		color:rgb(150,150,150);
+	}
 	
 	//border-bottom:1px solid lighten($darkgray,40);
 	@include box-shadow(lighten($darkgray,40) 0 1px 5px);
@@ -310,6 +315,7 @@ footer{
 .description{
 	position:relative;
 	overflow:auto;
+	min-height:30%;
 	.alert{
 		width:80%;
 	}
@@ -319,21 +325,42 @@ footer{
 
 
 		h3{
-
-			margin:1em 0 0.5em;
-			color:$darkgray;
+			@include absolute-center;
+			color:white;
 			font-family:$font-medium;
+			height:30px;
+			text-align: center;
+
+		}
+
+		.fa-caret-right{
+			color:black;
+			position: absolute;
+			right:2px;
+			top:0;
+			bottom:0;
+			margin:auto 0;
+			height:0.5em;
+			font-size:2em;
+			display:none;
+			
+			@include at-breakpoint($medium){
+				display:block;
+			}
 		}
 		
 		.wrapper-box{
 			@include border-radius;
-		
+			height:3.5em;
+			margin:2em auto;
+			width:95%;
+
 			&.create{
 				background-color:$green;
 			
 			}
 
-			&.share{
+			&.invite{
 				
 				background-color:$cyan;
 
@@ -345,72 +372,26 @@ footer{
 				
 			}
 
-			p{
-				padding:1em;
-				color:white;
-				font-family: $font-normal;
-			}
+			
 		}
 
 		@include at-breakpoint($medium){
 			position: relative;
 			height:17em;
 			
-			h3{
-				text-align: center;
-				margin:0;
-			}
-
 			.wrapper-box{
 				@include border-radius(12em);
 				@include absolute-center($top:1em);
 				background-color:$darkgray;
 				width:12em;
 				height:12em;
-				&.create{
-					
-					p{
-						height:55%;
-					}
-				}
 
-				&.talk{
-					
-					p{
-						width:58%;
-						height:45%;
-					}
+				h3{
+					height: 45px;
 				}
-
-				p{
-					@include absolute-center;
-					width:67%;
-					height:67%;
-					color:white;
-					font-size:0.9em;
-					padding:0;
-				}
+				
 			}
 		}
-		
-		.fa-caret-right{
-
-			position: absolute;
-			right:2px;
-			top:0;
-			bottom:0;
-			margin:auto 0;
-			height:2em;
-			font-size:2em;
-			display:none;
-			
-			@include at-breakpoint($medium){
-				display:block;
-			}
-
-		}
-
-		
 	}
 }
 
@@ -422,7 +403,7 @@ footer{
 }
 
 
-// chatting room
+// chat room
 // modal box for getting names
 #getName-modal{
 	.modal-body{
@@ -438,7 +419,7 @@ footer{
 }
 
 
-// main chatting name
+// main chat name
 #chatting-page{
 	
 	height:90%;
@@ -597,6 +578,10 @@ footer{
 			
 			width: 100%;
 		}
+	}
+
+	#chat_box{
+		border-width:3px;
 	}
 }
 

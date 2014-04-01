@@ -59,7 +59,7 @@ exports.sendVerification = function(req,user,email){
 
     var info = {
         receiver: email,
-        subject:"Confirmation Email - simple chatting room",
+        subject:"Confirmation Email - simple chat room",
         textContent:"Please click the following link to verify your account",
         htmlContent:"<p style='font-size:15px;'>Please click the following link to verify your account</p></br>"
     };
@@ -74,7 +74,7 @@ exports.sendResetVerification = function(req,user,email){
 
     var info = {
         receiver: email,
-        subject:"Forgot password - simple chatting room",
+        subject:"Forgot password - simple chat room",
         textContent:"Please click the following link to reset your password",
         htmlContent:"<p style='font-size:15px;'>Please click the following link to reset your password</p></br>"
     };

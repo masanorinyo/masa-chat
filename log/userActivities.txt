@@ -23,3 +23,12 @@ User: masanorinyo - id: 5338cbf678d12d00006b3751 - Activity: Local Login - When:
 User: masanorinyo - id: 5338cbf678d12d00006b3751 - Activity: Local Login - When: Mon Mar 31 2014 10:42:01 GMT-0400 (EDT)
 User: masanorinyo - id: 5338cbf678d12d00006b3751 - Activity: Local Login - When: Mon Mar 31 2014 10:50:33 GMT-0400 (EDT)
 >>>>>>> origin/master
+User: masanorinyo - id: 5338cbf678d12d00006b3751 - Activity: Local Login - When: Mon Mar 31 2014 15:04:39 GMT-0400 (EDT)
+User: masanorinyo - id: 533af5cee831a9d622da1e52 - Activity: Local signup - When: Tue Apr 01 2014 13:22:23 GMT-0400 (EDT)
+User: masanorinyo - id: 533af5cee831a9d622da1e52 - Activity: Verified account - When: Tue Apr 01 2014 13:23:55 GMT-0400 (EDT)
+User: masanorinyo - id: 533b20544cacc6c625a2339b - Activity: Local signup - When: Tue Apr 01 2014 16:23:48 GMT-0400 (EDT)
+User: masanorinyo - id: 533b20544cacc6c625a2339b - Activity: Logged off - When: Tue Apr 01 2014 16:24:39 GMT-0400 (EDT)
+User: masanorinyo - id: 533b20544cacc6c625a2339b - Activity: Local Login - When: Tue Apr 01 2014 16:24:59 GMT-0400 (EDT)
+User: masanorinyo - id: 533b20544cacc6c625a2339b - Activity: Logged off - When: Tue Apr 01 2014 16:25:47 GMT-0400 (EDT)
+User: masanorinyo - id: 533b20544cacc6c625a2339b - Activity: Local Login - When: Tue Apr 01 2014 16:26:05 GMT-0400 (EDT)
+User: masanorinyo - id: 533b20544cacc6c625a2339b - Activity: Local Login - When: Tue Apr 01 2014 16:32:17 GMT-0400 (EDT)

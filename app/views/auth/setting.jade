@@ -8,7 +8,7 @@ block content
 			div.page-header.text-center
 				h1
 					i.fa.fa-anchor
-					|  Setting Page
+					|  Settings
 				
 			div.row
 				div.col-sm-12
@@ -23,21 +23,9 @@ block content
 							
 							li
 								strong
-									|  email:  
+									|  Email:  
 								span.pull-right
 									=user.profile.email
-
-							li
-								strong
-									|   Gender:  
-								
-								span.pull-right
-									
-									if user.profile.gender
-										=user.profile.gender
-
-									else
-										|  Not specified
 							
 							li
 								strong

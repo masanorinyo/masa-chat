@@ -44,14 +44,14 @@ module.exports = function(app){
 	
 	});
 
-	//Chatting room
+	//Chat room
 	app.get('/room',auth_utility.isLoggedIn,function(req,res){
 
 		res.redirect('/room/'+req.user.profile.username+'/me');
 
 	});
 
-	//Chatting room
+	//Chat room
 	app.get('/room/:username',auth_utility.isLoggedIn,function(req,res){
 
 		res.redirect('/room/'+req.user.profile.username+'/me');
@@ -161,7 +161,7 @@ module.exports = function(app){
 			//if the user is NOT invited to the chatroom.
 			}else{
 
-				req.session.errorMessage = "You are not invited to "+ user.roomName+"'s chatting room";
+				req.session.errorMessage = "This is not your chat room";
 				res.redirect('/');
 				
 			}

@@ -680,10 +680,11 @@ module.exports = function(app, passport) {
 		passport.authenticate('google', {
 			failureRedirect : '/'
 		}),function(req,res){
-
-			auth_utility.rememberOauth(req,res);	
+			console.log(req);
+			auth_utility.rememberOauth(req,res);
 			res.redirect('/room/'+req.user.profile.username+"/me");
-		});
+		}
+	);
 
 
 	//======== Authorization ========//
