@@ -14,7 +14,7 @@ $(function(){
     var log_chat_message = function  (text,user,time, photoLink, type) {
         var chatbox = document.getElementById("chat_log");
         var userInfo = $('<div class="chatter"/>').text(user);
-        var accessTime = $('<span class="accessTime"/>').text("- said at "+time);
+        var accessTime = $('<span class="accessTime"/>').text("- "+time);
         var arrow = $('<i class="fa fa-caret-up"/>');
         var message = $('<div class="message"/>').text(text);
 

@@ -103,7 +103,7 @@ module.exports = function(app){
 		if(!req.session.errorMessage){
 			req.session.errorMessage="";
 		}		
-		
+		console.log(req.user);
 		if(key==="me"){
 			//if users are logged in
 			if(req.user){
@@ -142,6 +142,7 @@ module.exports = function(app){
 
 				// if the chatroom is the user's room
 				if(req.user.profile.username === user.roomName){
+
 					user.isMyRoom = true;
 
 					//make a token and get a url
@@ -165,8 +166,6 @@ module.exports = function(app){
 				res.redirect('/');
 				
 			}
-
-
 
 
 		}else{

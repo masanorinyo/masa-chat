@@ -22,12 +22,15 @@ module.exports=function(db){
 	app.use(express.favicon(__dirname + '/public/favicon.ico'));
 	app.use(express.logger('dev'));
 	app.use(express.bodyParser());
-
 	app.use(express.cookieParser());
 	app.use(express.session({
-		secret	: 'crazy fire killing crazy monkey looking poop',
+		secret	: '$MySuperSecretIsIAMTHESUN',
 		key 	: 'express.sid',
-		maxAge	: new Date(Date.now() + 3600000),
+		cookie 	: { 
+			path 		: '/', 
+			httpOnly	: true, 
+			maxAge		: new Date(Date.now() + (60000*60*24*365))
+		},
 		store 	: new MongoStore({ mongoose_connection: db })
 	}));
 

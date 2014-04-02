@@ -69,13 +69,15 @@ exports.checkAccountStatus = function(user){
 	
 //remember me function for oAuthentication
 exports.rememberOauth = function(req,res){
-	req.session.cookie.maxAge = 1000*60*3;
+	//remember it for one year - 60 secounds * 60 mins * 24 hours * 365 days
+	req.session.cookie.maxAge = 60000*60*24*365;
 }
 
 //remember me function for local login and signup
 exports.rememberMe = function(req,res){
  	if (req.body.remember_me) {
-      	req.session.cookie.maxAge = 1000 * 60 * 3;
+ 		//remember it for one year - 60 secounds * 60 mins * 24 hours * 365 days
+      	req.session.cookie.maxAge = 60000*60*24*365;
 	}else{
       	req.session.cookie.expires = false;
     }
