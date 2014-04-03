@@ -1,5 +1,5 @@
 $(function(){
-
+    
     //functions
     var getTime = function(){
          var date = new Date();

@@ -1,4 +1,8 @@
 $(function(){
+	if (window.navigator.standalone) {
+      $("meta[name='apple-mobile-web-app-status-bar-style']").remove();
+    }
+
 	//login modal shows up
 	$('#login-button').click(function(){
 
