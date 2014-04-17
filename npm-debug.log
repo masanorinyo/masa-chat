@@ -5,13 +5,13 @@
 2 info using npm@1.3.21
 3 info using node@v0.10.24
 4 verbose run-script [ 'prestart', 'start', 'poststart' ]
-5 info prestart simple-chatting-room@0.1.1-12
-6 info start simple-chatting-room@0.1.1-12
+5 info prestart simple-chatting-room@0.1.1-14
+6 info start simple-chatting-room@0.1.1-14
 7 verbose unsafe-perm in lifecycle true
-8 info simple-chatting-room@0.1.1-12 Failed to exec start script
-9 error simple-chatting-room@0.1.1-12 start: `node config/server.js`
+8 info simple-chatting-room@0.1.1-14 Failed to exec start script
+9 error simple-chatting-room@0.1.1-14 start: `node config/server.js`
 9 error Exit status 8
-10 error Failed at the simple-chatting-room@0.1.1-12 start script.
+10 error Failed at the simple-chatting-room@0.1.1-14 start script.
 10 error This is most likely a problem with the simple-chatting-room package,
 10 error not with npm itself.
 10 error Tell the author that this fails on your system:

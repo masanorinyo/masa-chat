@@ -16,7 +16,7 @@ module.exports=function(db){
 	require('../config/passport')(passport); // pass passport for configuration
 
 	// all environments
-	app.set('port', process.env.PORT || 443);
+	app.set('port', process.env.PORT || 8080);
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'jade');
 	app.use(express.favicon(__dirname + '/public/favicon.ico'));
