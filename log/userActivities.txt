@@ -62,3 +62,6 @@ User: masanorinyo - id: 533b743c2f95c5593758318d - Activity: Local Login - When:
 User: masanorinyo - id: 533b743c2f95c5593758318d - Activity: Local Login - When: Wed Apr 02 2014 16:22:20 GMT-0400 (EDT)
 User: masanorinyo - id: 533b743c2f95c5593758318d - Activity: Local Login - When: Wed Apr 02 2014 16:27:45 GMT-0400 (EDT)
 User: masanorinyo - id: 533b743c2f95c5593758318d - Activity: Local Login - When: Wed Apr 02 2014 16:43:34 GMT-0400 (EDT)
+User: testor9999 - id: 536fd1eeb564275c2f5ff3ab - Activity: Local signup - When: Sun May 11 2014 15:39:27 GMT-0400 (EDT)
+User: masanorinyo - id: 5378f07a34d95a8e0d094797 - Activity: Local signup - When: Sun May 18 2014 13:40:10 GMT-0400 (EDT)
+User: masanorinyo - id: 5378f07a34d95a8e0d094797 - Activity: Logged off - When: Sun May 18 2014 13:40:27 GMT-0400 (EDT)

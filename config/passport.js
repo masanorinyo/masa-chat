@@ -12,7 +12,7 @@ var verification        = require('../app/lib/verification');
 var User                = require('../app/models/user');
 
 //--load oAuthentication configuration--//
-var configAuth          = require('./auth'); // use this one for testing
+var configAuth          = require('./auth'); 
 
 
 //--functions--//
